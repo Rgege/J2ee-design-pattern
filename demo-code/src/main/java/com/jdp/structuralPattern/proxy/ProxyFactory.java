@@ -34,10 +34,10 @@ import java.lang.reflect.Proxy;
  * @date 2019/1/21
  **/
 public class ProxyFactory<T> {
-    private T target;
+    private T t;
 
     public ProxyFactory(T t) {
-        this.target = t;
+        this.t = t;
     }
 
     /**
@@ -47,7 +47,7 @@ public class ProxyFactory<T> {
      * @return
      */
     public T getProxyInstance(Boolean creatClassFile) {
-        InvocationHandler invocationHandler = new MyInvocationHandler<T>(this.target);
+        InvocationHandler invocationHandler = new MyInvocationHandler(this.t);
         Class[]interfaces=((MyInvocationHandler) invocationHandler).targetInterfaces();
         T proxyInstance = (T) Proxy.newProxyInstance(((MyInvocationHandler) invocationHandler).targetClassLoader(),
                 interfaces,

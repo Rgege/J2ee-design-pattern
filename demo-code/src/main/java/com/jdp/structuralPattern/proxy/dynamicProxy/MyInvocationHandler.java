@@ -30,11 +30,11 @@ import java.lang.reflect.Method;
  * @version 1.0.0
  * @date 2019/1/21
  **/
-public class MyInvocationHandler  <T>implements InvocationHandler{
+public class MyInvocationHandler implements InvocationHandler{
     //目标对象
-    private T target;
+    private Object target;
 
-    public MyInvocationHandler(T target) {
+    public MyInvocationHandler(Object target) {
         this.target = target;
     }
 
