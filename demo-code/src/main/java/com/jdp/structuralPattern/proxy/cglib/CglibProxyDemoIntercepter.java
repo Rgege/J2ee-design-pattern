@@ -27,7 +27,7 @@ import java.lang.reflect.Method;
  * @version 1.0.0
  * @date 2019/2/22
  **/
-public class CglibProxyDemoIntercepter implements MethodInterceptor {
+public class CglibProxyDemoIntercepter implements MethodInterceptor  {
 
     /**
      *
@@ -40,6 +40,10 @@ public class CglibProxyDemoIntercepter implements MethodInterceptor {
      */
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+        System.out.println("=========================cglib do somthing before");
+        methodProxy.invokeSuper(o,objects);
+        System.out.println("=========================cglib do somthing after");
+
         return null;
     }
 }
